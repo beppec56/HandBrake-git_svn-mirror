@@ -813,17 +813,17 @@ class Project( Action ):
             self.build = time.strftime('%Y%m%d') + '00'
             self.title = '%s %s (%s)' % (self.name,self.version,self.build)
         elif repo.type == 'developer':
-            self.version = 'g%s' % (repo.rev)
+            self.version = '%s' % (repo.rev)
             url_ctype = '_unstable'
             url_ntype = 'unstable'
             self.build = time.strftime('%Y%m%d') + '01'
-            self.title = '%s g%s (%s)' % (self.name,repo.rev,self.build)
+            self.title = '%s %s (%s)' % (self.name,repo.rev,self.build)
         else:
-            self.version = '%s-g%s' % (repo.branch,repo.rev)
+            self.version = '%s-%s x264-r2438-af8e768' % (repo.branch,repo.rev)
             url_ctype = '_unofficial'
             url_ntype = 'unofficial'
             self.build = time.strftime('%Y%m%d') + '99'
-            self.title = '%s %s-g%s (%s)' % (self.name,repo.branch,repo.rev,self.build)
+            self.title = '%s %s-%s (%s) x264-r2438-af8e768' % (self.name,repo.branch,repo.rev,self.build)
 
         self.url_appcast = 'http://handbrake.fr/appcast%s%s.xml' % (url_ctype,url_arch)
         self.url_appnote = 'http://handbrake.fr/appcast/%s.html' % (url_ntype)
