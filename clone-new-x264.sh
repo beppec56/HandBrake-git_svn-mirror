@@ -15,11 +15,12 @@ git pull origin +stable:stable
 if [ "$1" != "" ]; then
     git checkout $1
 else # use curent default
-    git checkout de0bc36
+    git checkout 956c8d8
 fi
 
 TARFILE=`./version.sh | grep X264_VERSION |awk '{print "x264-"$4"-"$5"-local.tar.gz"}' | sed 's/\"//g'`
 
 cd ..
 tar -hczf $TARFILE x264
+echo "tar file: $TARFILE"
 
