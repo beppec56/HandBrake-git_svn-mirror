@@ -13,7 +13,7 @@ git  pull origin
 if [ "$1" != "" ]; then
     git checkout $1
 else # use current default
-    git checkout master
+    git checkout v10_beta2
 fi
 
 GITVERS=$(./version.sh)
