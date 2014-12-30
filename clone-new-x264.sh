@@ -16,5 +16,5 @@ fi
 TARFILE=`./version.sh | grep X264_VERSION |awk '{print "x264-"$4"-"$5".tar.gz"}' | sed 's/\"//g'`
 
 cd ..
-tar czf $TARFILE x264
+tar cvhzf $TARFILE x264
 
