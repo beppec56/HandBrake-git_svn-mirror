@@ -1368,9 +1368,11 @@ void hb_add( hb_handle_t * h, hb_job_t * job )
         hb_deep_log(2, "Adding two-pass encode");
         job->pass = 1;
         job->sequence_id = (job->sequence_id & 0xFFFFFF) | (sub_id++ << 24);
+	job->fastfirstpass = 1;	
         hb_add_internal(h, job);
         job->pass = 2;
         job->sequence_id = (job->sequence_id & 0xFFFFFF) | (sub_id++ << 24);
+	job->fastfirstpass = 0;	
         hb_add_internal(h, job);
     }
     else
