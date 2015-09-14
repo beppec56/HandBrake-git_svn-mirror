@@ -8,13 +8,19 @@ fi
 
 cd x264
 
-#git  pull origin +master:master
+git checkout master
+git  pull origin +master:master
+git checkout stable
+git pull origin +stable:stable
 if [ "$1" != "" ]; then
     git checkout $1
+else # use curent default
+    git checkout stable
 fi
 
-TARFILE=`./version.sh | grep X264_VERSION |awk '{print "x264-"$4"-"$5".tar.gz"}' | sed 's/\"//g'`
+TARFILE=`./version.sh | grep X264_VERSION |awk '{print "x264-"$4"-"$5"-local.tar.gz"}' | sed 's/\"//g'`
 
 cd ..
-tar cvhzf $TARFILE x264
+tar -hczf $TARFILE x264
 
+echo "$TARFILE"
